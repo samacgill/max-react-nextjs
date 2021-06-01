@@ -42,7 +42,7 @@ function Homepage(props) {
           content="Browse a full list of meetups created with React and stored on MongoDB"
         />
       </Head>
-      <MeetupList meetups={props.meetups} />;
+      <MeetupList meetups={props.meetups} />
     </Fragment>
   );
 }
@@ -75,7 +75,7 @@ export async function getStaticProps() {
     // revalidate will refetch data every x seconds. This is every hour
     // Alternative that will refetch data for every incomoming request is
     // getServerSideProps, which also gives access to req and res objects eg for auth (See 335)
-    revalidate: 3600,
+    revalidate: 1,
   };
 }
 export default Homepage;

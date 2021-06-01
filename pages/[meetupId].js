@@ -34,8 +34,10 @@ export async function getStaticPaths() {
 
   return {
     // fallback: false assumes we pregenerate all pages
-    //can use fallback:true to just pregenerate popular pages
-    fallback: false,
+    //can use fallback:true or blocking to just pregenerate popular pages
+    // the rest will be generated on the fly, then cache
+    // with blocking user won't see anything until finished page is served
+    fallback: "blocking",
     paths: meetups.map((meetup) => ({
       params: { meetupId: meetup._id.toString() },
     })),
